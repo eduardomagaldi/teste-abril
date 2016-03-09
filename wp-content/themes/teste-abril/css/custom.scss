@@ -1,4 +1,4 @@
-//teste abril
+//teste
 
 $main-header-color: #ed1c24;
 $body-bg-color: #e6e6e6;
@@ -21,8 +21,11 @@ div.site {
 	max-width: $max-site-width;
 }
 
-.site-header {
+.site-header-wrapper {
 	background: $main-header-color;
+}
+
+.site-header {
 	padding: 20px !important;
 	position: relative;
 	overflow: hidden;
@@ -47,6 +50,22 @@ div.site {
 		display: inline-block;
 		vertical-align: middle;
 	}
+
+	.social-navigation {
+		display: block !important;
+		background: #242424;
+
+		a {
+			color: $menu-font-color;
+			width: initial;
+			border: none;
+			display: inline;
+
+			&:before {
+				content: none;
+			}
+		}
+	}
 }
 
 .primary-menu {
@@ -58,6 +77,27 @@ div.site {
 			text-transform: uppercase;
 		}
 	}
+}
+
+.trending-label {
+	height: 28px;
+	overflow: hidden;
+	width: 20%;
+}
+
+.arrow-right {
+	width: 0;
+	border-left: 30px solid #d41f1f;
+	border-right: 30px solid transparent;
+	border-top: 30px solid transparent;
+	border-bottom: 30px solid transparent;
+	float: right;
+	margin-top: -16px;
+	margin-left: -53px;
+}
+
+.arrow-2 {
+	border-left: 30px solid #242424;
 }
 
 @media screen and (max-width: 909px) {
