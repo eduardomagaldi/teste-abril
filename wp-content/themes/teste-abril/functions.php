@@ -406,7 +406,11 @@ function twentysixteen_widget_tag_cloud_args( $args ) {
 }
 add_filter( 'widget_tag_cloud_args', 'twentysixteen_widget_tag_cloud_args' );
 
+//function load_fonts
 function load_fonts() {
     wp_register_style('et-googleFonts', 'https://fonts.googleapis.com/css?family=Dosis:400,700');
     wp_enqueue_style( 'et-googleFonts');
 }
+
+//function add custom css
+wp_enqueue_style( 'custom', get_template_directory_uri() . '/css/custom.css',false, '1.1', 'all');

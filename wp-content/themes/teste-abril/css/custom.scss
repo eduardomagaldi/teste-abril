@@ -1,0 +1,93 @@
+//teste abril
+
+$main-header-color: #ed1c24;
+$body-bg-color: #e6e6e6;
+$menu-font-color: #fff;
+$max-site-width: 1320px;
+
+body {
+	&.page.page-template-default {
+		background: #e6e6e6;
+
+		&:before {
+			display: none;
+		}
+	}
+}
+
+div.site {
+	margin: 0 auto;
+	background: none;
+	max-width: $max-site-width;
+}
+
+.site-header {
+	background: $main-header-color;
+	padding: 20px !important;
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+
+	.site-header-main {
+		margin-left: 40px;
+		width: 70%;
+
+		.site-branding,
+		.site-header-menu {
+			float: left;
+		}
+
+		.site-header-menu {
+			float: right;
+		}
+	}
+
+	.site-header-main,
+	.search-form {
+		display: inline-block;
+		vertical-align: middle;
+	}
+}
+
+.primary-menu {
+	.menu-item {
+		a {
+			font-family: 'Dosis', sans-serif;
+			font-size: 14px;
+			color: $menu-font-color;
+			text-transform: uppercase;
+		}
+	}
+}
+
+@media screen and (max-width: 909px) {
+
+	.social-links-menu {
+		display: none;
+	}
+
+	.search-form {
+		width: 40px;
+		height: 40px;
+		position: absolute !important;
+		top: 50%;
+
+		.search-field {
+			display: none;
+		}
+	}
+
+	.site-branding {
+		margin: 0 auto !important;
+		padding-left: 40px;
+	}
+
+	.site-header {
+		background: $main-header-color;
+
+		.site-header-main {
+			width: 80%;
+		}
+	}
+
+}
