@@ -1,9 +1,17 @@
 //teste
 
+$lightest-color: #fff;
+
 $main-header-color: #ed1c24;
 $body-bg-color: #e6e6e6;
 $menu-font-color: #fff;
 $max-site-width: 1320px;
+$trending-color: #d41f1f;
+$sec-nav-bg-color: #242424;
+$sec-font-color: #a3a3a3;
+$sub-menu-bg-color: #474747;
+
+$main-font-family: 'Dosis', sans-serif;
 
 body {
 	&.page.page-template-default {
@@ -26,9 +34,8 @@ div.site {
 }
 
 .site-header {
-	padding: 20px !important;
+	padding: 0;
 	position: relative;
-	overflow: hidden;
 	width: 100%;
 
 	.site-header-main {
@@ -42,6 +49,7 @@ div.site {
 
 		.site-header-menu {
 			float: right;
+			margin: 0;
 		}
 	}
 
@@ -49,32 +57,115 @@ div.site {
 	.search-form {
 		display: inline-block;
 		vertical-align: middle;
+		margin-left: 20px;
 	}
 
 	.social-navigation {
-		display: block !important;
-		background: #242424;
+		display: block;
+		background: $sec-nav-bg-color;
 
 		a {
+			font-family: $main-font-family;
 			color: $menu-font-color;
 			width: initial;
 			border: none;
 			display: inline;
+			text-transform: uppercase;
 
 			&:before {
 				content: none;
 			}
+		}
+
+		.menu-item { 
+			margin-right: 20px;
 		}
 	}
 }
 
 .primary-menu {
 	.menu-item {
+		position: static;
+		border: none;
+
+		> .sub-menu {
+			width: 100%;
+
+			&:before {
+				content: none;
+			}
+
+			> li {
+				.menu-item {
+
+				}
+			}
+
+			> .sub-menu {
+				position: absolute;
+			    right: 0;
+			}
+		}
+	}
+
+	.menu-item {
 		a {
-			font-family: 'Dosis', sans-serif;
+			font-family: $main-font-family;
 			font-size: 14px;
 			color: $menu-font-color;
 			text-transform: uppercase;
+		}
+	}
+
+	> .menu-item {
+		> a {
+			padding: 36px 30px 37px 20px;
+		}
+	}
+}
+
+.main-navigation {
+	ul ul ul {
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+
+	.primary-menu {
+		> li:hover {
+			background: $sec-nav-bg-color;
+			
+			a {
+				color: $lightest-color;
+			}
+		}
+	}
+
+	.menu-item-has-children {
+		a {
+			position: relative;
+		}
+
+		> a {
+			&:after {
+				top: auto;
+			}
+		}
+	}
+
+	ul {
+		ul {
+			> li {
+				background: $sec-nav-bg-color;
+
+				a {
+					background: $sub-menu-bg-color;
+				}
+			}
+
+			&:before, &:after {
+				content: none;
+			}
 		}
 	}
 }
@@ -82,17 +173,34 @@ div.site {
 .trending-label {
 	height: 28px;
 	overflow: hidden;
-	width: 20%;
+	float: left;
+	width: 180px;
+
+	.trending-title {
+		font-family: $main-font-family;
+		color: $menu-font-color;
+		font-size: 14px;
+		text-transform: uppercase;
+		background: $trending-color;
+		height: 28px;
+		width: 110px;
+		line-height: 2em;
+		padding-left: 17px;
+	}
+}
+
+.menu-secondary-menu-container {
+	height: 28px;
 }
 
 .arrow-right {
 	width: 0;
-	border-left: 30px solid #d41f1f;
+	border-left: 30px solid $trending-color;
 	border-right: 30px solid transparent;
 	border-top: 30px solid transparent;
 	border-bottom: 30px solid transparent;
 	float: right;
-	margin-top: -16px;
+	margin-top: -45px;
 	margin-left: -53px;
 }
 
@@ -100,6 +208,24 @@ div.site {
 	border-left: 30px solid #242424;
 }
 
+.search-submit {
+	background: $lightest-color;
+
+	&:before {
+		color: $sec-font-color;
+	}
+
+	&:hover {
+		background: $lightest-color;
+	}
+}
+
+input[type="search"].search-field {
+	background: $menu-font-color;
+	border: none;
+}
+
+//mobile
 @media screen and (max-width: 909px) {
 
 	.social-links-menu {
@@ -109,8 +235,8 @@ div.site {
 	.search-form {
 		width: 40px;
 		height: 40px;
-		position: absolute !important;
-		top: 50%;
+		position: absolute;
+		top: 20px;
 
 		.search-field {
 			display: none;
@@ -118,16 +244,38 @@ div.site {
 	}
 
 	.site-branding {
-		margin: 0 auto !important;
-		padding-left: 40px;
+		margin: 0 auto;
 	}
 
 	.site-header {
 		background: $main-header-color;
 
 		.site-header-main {
-			width: 80%;
+			width: auto;
+			display: flex;
+
+			.site-branding {
+				float: none;
+				display: inline-block;
+			}
+
+			.menu-toggle {
+				margin: 0;
+			}
+		}
+
+		.social-navigation {
+			display: none;
+		}
+	}
+
+	.primary-menu {
+		.menu-item {
+			a {
+				padding: 0;
+			}
 		}
 	}
 
 }
+
